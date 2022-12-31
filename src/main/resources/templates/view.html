@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>view</title>
+</head>
+<body>
+제목 <h1 th:text="${board.title}"></h1>
+글쓴이 <h3 th:text="${board.name}"></h3>
+<p th:text="${board.content}"></p>
+<a th:href="@{/modify/{id} (id = ${board.id})}">수정</a>
+<form action="/del" method="post">
+    <input type="hidden" th:value="${board.id}" name="id">
+    <input type="password" placeholder="비밀번호 입력" name="passwd">
+    <button type="submit">삭제</button>
+</form>
+</body>
+</html>

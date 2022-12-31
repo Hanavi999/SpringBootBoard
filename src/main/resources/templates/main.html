@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>main</title>
+</head>
+<style>
+
+    .layout {
+        width: 1400px;
+        margin: auto;
+        margin-top: 40px;
+    }
+
+    .id {
+        width: 200px;
+        text-align: center;
+        padding: 10px 0px;
+        border-top: 1px solid #000;
+    }
+
+    .title {
+        width: 1000px;
+        text-align: center;
+        padding: 10px 0px;
+        border-top: 1px solid #000;
+    }
+
+    .name {
+        width: 200px;
+        text-align: center;
+        padding: 10px 0px;
+        border-top: 1px solid #000;
+    }
+
+
+</style>
+<body>
+<div class="layout">
+    <a href="/input">글쓰기</a>
+    <table>
+        <thead>
+        <tr>
+            <th class="id">글번호</th>
+            <th class="title">제목</th>
+            <th class="name">글쓴이</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="board: ${list}">
+            <td th:text="${board.id}" class="id"></td>
+            <td class="title"><a th:text="${board.title}" th:href="@{/view(id=${board.id})}"></a></td>
+            <td th:text="${board.name}" class="name"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
